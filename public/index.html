@@ -10,7 +10,7 @@
   </head>
   <body class="pt-4 px-3 bg-gray-100">
     <!-- nabar -->
-    <div class="flex py-3 px-2 items-center justify-between h-11">
+    <div class="flex md:hidden py-3 px-2 items-center justify-between h-11">
       <a class="rounded-md h-7 w-7" url="#"
         ><img class="w-full" src="/assets/img/Asset 22.svg" alt=""
       /></a>
@@ -20,7 +20,9 @@
       </div>
     </div>
     <!-- filter - sort mobile section -->
-    <div class="text-sm flex items-center  mt-3 gap-x-2  text-slate-800 bg-white rounded-md shadow-sm">
+    <div
+      class="text-sm flex md:hidden items-center mt-3 gap-x-2 text-slate-800 bg-white rounded-md shadow-sm mb-9"
+    >
       <div class="flex items-center justify-between">
         <div>
           <svg
@@ -54,8 +56,8 @@
         <span>محبوب ترین محصول</span>
       </div>
       <div class="flex items-center justify-between gap-x-2">
-        <div 
-          ><svg
+        <div>
+          <svg
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -78,10 +80,144 @@
               stroke-miterlimit="10"
               stroke-linecap="round"
               stroke-linejoin="round"
-            /></svg
-        ></div>
+            />
+          </svg>
+        </div>
         <span>فیلتر : برند اپل</span>
       </div>
     </div>
+    <!-- broduct section -->
+    <div class="grid gap-2 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div class="shadow-md bg-white p-2 rounded-xl flex flex-col gap-4">
+        <div class="overflow-hidden rounded-xl bg-slate-200 relative">
+          <div>
+            <img
+              class="object-cover"
+              src="/assets/img/apple-watch-7.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="absolute w-7 h-7 rounded-full top-1 right-2 bg-gray-300 flex items-center justify-center"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.14091 4.48968C9.28571 3.41685 11.1417 3.41685 12.2865 4.48968C13.4314 5.56257 13.4314 7.30211 12.2865 8.375L8.11391 12.2853C7.99332 12.3983 7.79787 12.3983 7.67729 12.2853L3.50465 8.375C2.35978 7.30211 2.35978 5.56257 3.50465 4.48968C4.64945 3.41685 6.50548 3.41685 7.65028 4.48968L7.8956 4.71957L8.14091 4.48968Z"
+                fill="#FF755C"
+              />
+            </svg>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <div class="flex items-center justify-between">
+            <!-- product desc -->
+            <span class="text-xs text-gray-300 md:text-base">اپل</span>
+            <div x-data="{ color: 'slate' }" class="flex">
+              <div
+                @click="color='slate'"
+                :class="color==='slate'? 'border-emerald-400 border-2':''"
+                class="bg-slate-800 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer text-white flex justify-center items-center"
+              >
+                <svg
+                  x-show="color==='slate'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-3 h-3"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                @click="color='orange'"
+                :class="color==='orange'? 'border-emerald-400 border-2':''"
+                class="bg-orange-400 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer -mr-0.5 text-white flex justify-center items-center"
+              >
+                <svg
+                  x-show="color==='orange'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-3 h-3"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                @click="color='yellow'"
+                :class="color==='yellow'? 'border-emerald-400 border-2':''"
+                class="bg-yellow-400 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer -mr-0.5 text-white flex justify-center items-center"
+              >
+                <svg
+                  x-show="color==='yellow'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-3 h-3"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                hover:mr-2
+                hover:scale-110
+                @click="color='indigo'"
+                :class="color==='indigo'? 'border-emerald-400 border-2':''"
+                class="bg-indigo-800 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer -mr-0.5 text-white flex justify-center items-center"
+              >
+                <svg
+                  x-show="color==='indigo'"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="w-3 h-3"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- product taitel -->
+          <h4 class="text-sm font-medium md:text-base">
+            ساعت هوشمند اپل سری 1
+          </h4>
+          <span class="text-end w-full text-orange-600">2,250,000 تومان </span>
+          <button
+            class="text-orange-400 w-full font-bold border-t pt-2 flex items-center justify-center hover:text-orange-600 md:text-lg"
+          >
+            مشاهده و سفارش
+          </button>
+        </div>
+      </div>
+    </div>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
   </body>
 </html>
