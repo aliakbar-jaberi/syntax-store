@@ -467,6 +467,9 @@ video {
 .h-7{
   height: 1.75rem;
 }
+.h-8{
+  height: 2rem;
+}
 .w-3{
   width: 0.75rem;
 }
@@ -563,6 +566,12 @@ video {
 .bg-yellow-400{
   --tw-bg-opacity: 1;
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
+.stroke-none{
+  stroke: none;
+}
+.stroke-white{
+  stroke: #fff;
 }
 .object-cover{
   -o-object-fit: cover;
@@ -690,6 +699,39 @@ video {
 @media (min-width: 768px){
   .md\:hidden{
     display: none;
+  }
+  .md\:h-10{
+    height: 2.5rem;
+  }
+  .md\:h-9{
+    height: 2.25rem;
+  }
+  .md\:h-8{
+    height: 2rem;
+  }
+  .md\:h-7{
+    height: 1.75rem;
+  }
+  .md\:h-6{
+    height: 1.5rem;
+  }
+  .md\:w-1{
+    width: 0.25rem;
+  }
+  .md\:w-10{
+    width: 2.5rem;
+  }
+  .md\:w-9{
+    width: 2.25rem;
+  }
+  .md\:w-8{
+    width: 2rem;
+  }
+  .md\:w-7{
+    width: 1.75rem;
+  }
+  .md\:w-6{
+    width: 1.5rem;
   }
   .md\:grid-cols-3{
     grid-template-columns: repeat(3, minmax(0, 1fr));
