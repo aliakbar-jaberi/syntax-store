@@ -1,0 +1,42 @@
+export const detaport = [
+  {
+    id: 1,
+    taitel: "ساعت هوشمند اپل سری 7",
+    img: "/assets/img/apple-watch-7.png",
+    price: "۲,۲۵۰,۰۰۰ تومان ",
+    brand: "اپل",
+    default_color: "orange",
+  },
+  {
+    id: 2,
+    taitel: "ساعت هوشمند هواوی",
+    img: "/assets/img/1.png",
+    price: "۲,۲۵۰,۰۰۰ تومان ",
+    brand: "هواوی",
+    default_color: "yellow",
+  },
+  {
+    id: 3,
+    taitel: "ساعت هوشمند سامسونگ",
+    img: "/assets/img/2.png",
+    price: "۲,۲۵۰,۰۰۰ تومان ",
+    brand: "سامسونگ",
+    default_color: "slate",
+  },
+  {
+    id: 4,
+    taitel: "ساعت هوشمند شیائومی",
+    img: "/assets/img/3.png",
+    price: "۲,۲۵۰,۰۰۰ تومان ",
+    brand: "شیائومی",
+    default_color: "indigo",
+  },
+  {
+    id: 5,
+    taitel: "ساعت هوشمند ",
+    img: "/assets/img/5.png",
+    price: "۲,۲۵۰,۰۰۰ تومان ",
+    brand: "متفرقه",
+    default_color: "indigo",
+  },
+];

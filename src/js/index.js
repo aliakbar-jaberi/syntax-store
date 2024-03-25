@@ -1,99 +1,28 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./build/tailwind.css" />
-    <link rel="shortcut icon" href="/assets/img/Asset 22.svg"
-    type=”image/x-icon”>
-    <title>Syntax Store</title>
-  </head>
-  <body class="pt-4 px-3 bg-gray-100">
-    <!-- nabar -->
-    <div class="flex md:hidden py-3 px-2 items-center justify-between h-11">
-      <a class="rounded-md h-7 w-7" url="#"
-        ><img class="w-full" src="/assets/img/Asset 22.svg" alt=""
-      /></a>
-      <div class="text-lg font-bold text-slate-800"><h1>ساعت هوشمند</h1></div>
-      <div class="shadow-md p-1 rounded-md">
-        <img class="w-full" src="/assets/img/search-normal.svg" alt="" />
-      </div>
-    </div>
-    <!-- filter - sort mobile section -->
-    <div
-      class="text-sm flex md:hidden items-center mt-3 gap-x-2 text-slate-800 bg-white rounded-md shadow-sm mb-9"
-    >
-      <div class="flex items-center justify-between">
-        <div>
-          <svg
-            width="44"
-            height="44"
-            viewBox="0 0 44 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M13 17H31"
-              stroke="#FC5858"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              opacity="0.34"
-              d="M16 22H28"
-              stroke="#FC5858"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-            <path
-              d="M20 27H24"
-              stroke="#FC5858"
-              stroke-width="1.5"
-              stroke-linecap="round"
-            />
-          </svg>
-        </div>
-        <span>محبوب ترین محصول</span>
-      </div>
-      <div class="flex items-center justify-between gap-x-2">
-        <div>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M5.3999 2.1001H18.5999C19.6999 2.1001 20.5999 3.0001 20.5999 4.1001V6.3001C20.5999 7.1001 20.0999 8.1001 19.5999 8.6001L15.2999 12.4001C14.6999 12.9001 14.2999 13.9001 14.2999 14.7001V19.0001C14.2999 19.6001 13.8999 20.4001 13.3999 20.7001L11.9999 21.6001C10.6999 22.4001 8.8999 21.5001 8.8999 19.9001V14.6001C8.8999 13.9001 8.4999 13.0001 8.0999 12.5001L4.2999 8.5001C3.7999 8.0001 3.3999 7.1001 3.3999 6.5001V4.2001C3.3999 3.0001 4.2999 2.1001 5.3999 2.1001Z"
-              stroke="#AFAFAF"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              opacity="0.4"
-              d="M10.93 2.1001L6 10.0001"
-              stroke="#AFAFAF"
-              stroke-width="1.5"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </div>
-        <span>فیلتر : برند اپل</span>
-      </div>
-    </div>
-    <!-- broduct section -->
-    <div class="product__continr grid gap-x-2 gap-y-8 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 sm:gap-x-4 md:gap-x-8 md:gap-y-10">
-      <!-- <div class="shadow-md bg-white p-2 rounded-xl flex flex-col gap-4">
+const productUI = document.querySelector(".product__continr");
+import { detaport } from "./data.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const product = new GetDeta();
+  const productDeta = product.getproduct();
+  const productUi = new MakerUi();
+  productUi.displayProduct(productDeta);
+});
+
+class GetDeta {
+  getproduct() {
+    return detaport;
+  }
+}
+class MakerUi {
+  displayProduct(product) {
+    let result = "";
+    product.forEach((item) => {
+      result += `<div class="shadow-md bg-white p-2 rounded-xl flex flex-col gap-4">
         <div x-data="{ interest: false }" class="overflow-hidden rounded-xl bg-slate-200 relative">
           <div>
             <img
               class="object-cover"
-              src="/assets/img/apple-watch-7.png"
+              src="${item.img}"
               alt=""
             />
           </div>
@@ -123,8 +52,8 @@
         <div class="flex flex-col gap-3">
           <div class="flex items-center justify-between">
             <!-- product desc -->
-            <!-- <span class="text-xs text-gray-300 md:text-base">اپل</span>
-            <div x-data="{ color: 'slate' }" class="flex">
+            <span class="text-xs text-gray-300 md:text-base">${item.brand}</span>
+            <div x-data="{ color: '${item.default_color}' }" class="flex">
               <div
                 @click="color='slate'"
                 :class="color==='slate'? 'ring-2  ring-slate-800':''"
@@ -203,25 +132,22 @@
                   />
                 </svg>
               </div>
-            </div> -->
+            </div>
           </div>
           <!-- product taitel -->
           <h4 class="text-sm font-medium md:text-base">
-            ساعت هوشمند اپل سری 1
+            ${item.taitel}
           </h4>
-          <span class="text-end w-full text-orange-600">۲,۲۵۰,۰۰۰ تومان </span>
+          <span class="text-end w-full text-orange-600">${item.price}</span>
           <button
             class="text-orange-400 w-full font-bold border-t pt-2 flex items-center justify-center hover:text-orange-600 md:text-lg"
           >
             مشاهده و سفارش
           </button>
         </div>
-      </div> -->
-    </div>
-    <script src="/src/js/index.js" type="module"></script>
-    <script
-      defer
-      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
-    ></script>
-  </body>
-</html>
+      </div>
+      `;
+      productUI.innerHTML = result;
+    });
+  }
+}
