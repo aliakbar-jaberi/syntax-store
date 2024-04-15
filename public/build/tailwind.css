@@ -437,6 +437,15 @@ video {
 .top-1{
   top: 0.25rem;
 }
+.left-0{
+  left: 0px;
+}
+.-left-0{
+  left: -0px;
+}
+.-left-2{
+  left: -0.5rem;
+}
 .col-span-12{
   grid-column: span 12 / span 12;
 }
