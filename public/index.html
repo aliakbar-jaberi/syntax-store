@@ -95,11 +95,13 @@
           <!-- Grouping -->
           <div class="  ">
             <h4 class="font-bold text-orange-400 pt-6 pl-4 pr-4">دسته بندی</h4>
-            <ul class="flex flex-col gap-y-2 mt-4">
-              <li class="">
+            <ul x-data="{Laptop:false,Mobile:false,Watch:false}" class="flex flex-col gap-y-2 mt-4">
+              <li  class="text-gray-400">
                 <a
                   href="#"
-                  class="font-normal text-sm flex gap-x-2 text-gray-400 hover:bg-gray-100 hover:text-black p-1 pr-4"
+                  @click="Mobile=!Mobile"
+                  :class="Mobile===true?'text-black':''"
+                  class="font-normal text-sm flex gap-x-2  hover:bg-gray-100 hover:text-black p-1 pr-4"
                 >
                   <svg
                     class=""
@@ -140,10 +142,12 @@
                   <span>تلفن همراه</span></a
                 >
               </li>
-              <li class="">
+              <li class="text-gray-400">
                 <a
+                 @click="Watch=!Watch"
+                  :class="Watch===true?'text-black':''"
                   href="#"
-                  class="font-normal text-sm flex gap-x-2 text-gray-400 hover:bg-gray-100 p-1 pr-4 hover:text-black"
+                  class="font-normal text-sm flex gap-x-2  hover:bg-gray-100 p-1 pr-4 hover:text-black"
                 >
                   <svg
                     stroke="currentColor"
@@ -189,10 +193,12 @@
                   <span>ساعت هوشمند</span></a
                 >
               </li>
-              <li class="">
+              <li class="text-gray-400">
                 <a
+                 @click="Laptop=!Laptop"
+                  :class="Laptop===true?'text-black':''"
                   href="#"
-                  class="font-normal text-sm flex gap-x-2 text-gray-400 hover:bg-gray-100 p-1 pr-4 hover:text-black"
+                  class="font-normal text-sm flex gap-x-2  hover:bg-gray-100 p-1 pr-4 hover:text-black"
                 >
                   <svg
                     stroke="currentColor"
@@ -241,10 +247,10 @@
           <div class="flex flex-col gap-y-6 p-4 pt-1">
             <h4 class="font-bold text-orange-400">فیلتر</h4>
             <!-- brand -->
-            <div x-data="{open:true ,slect:2}" class="flex flex-col gap-y-4">
+            <div x-data="{open:false ,slect:2}" class="flex flex-col gap-y-4">
               <button
                 @click="open=!open"
-                class="flex justify-between items-center w-full"
+                class="flex justify-between items-center w-full hover:bg-gray-100 p-1 rounded-md"
               >
                 <div class="flex gap-2 items-end">
                   <div>
@@ -286,8 +292,8 @@
                   </div>
                   <h4>برند محصول</h4>
                 </div>
-                <div :class="open===true ? 'rotate-180':'' ">
-                  <svg
+                <div :class="open===true ? 'rotate-180':'' " class="transition-all duration-500 ease-out">
+                  <svg 
                     width="15"
                     height="15"
                     viewBox="0 0 13 13"
@@ -322,7 +328,7 @@
             <div x-data="{open:false}" class="flex flex-col gap-y-4">
               <button
                 @click="open=!open"
-                class="flex w-full justify-between items-center"
+                class="flex w-full justify-between items-center hover:bg-gray-100 p-1 rounded-md"
               >
                 <div class="flex gap-2 items-end">
                   <div>
@@ -386,7 +392,7 @@
                   </div>
                   <h4>رنگ</h4>
                 </div>
-                <div :class="open===true ? 'rotate-180':'' ">
+                <div :class="open===true ? 'rotate-180':'' " class="transition-all duration-500 ease-out">
                   <svg
                     width="15"
                     height="15"
@@ -402,31 +408,26 @@
                 </div>
               </button>
 
-              <div x-show="open===true" class="flex flex-col gap-y-3">
-                <div class="flex gap-2 items-center">
-                  <div
-                    class="h-4 w-4 rounded-sm border-2 border-slate-800"
-                  ></div>
-                  <span>سامسونگ</span>
-                </div>
-                <div class="flex gap-2 items-center">
-                  <div
-                    class="h-4 w-4 rounded-sm border-2 border-orange-500 bg-orange-400"
-                  ></div>
-                  <span>اپل</span>
-                </div>
-                <div class="flex gap-2 items-center">
-                  <div
-                    class="h-4 w-4 rounded-sm border-2 border-slate-800"
-                  ></div>
-                  <span>شیائومی</span>
-                </div>
-                <div class="flex gap-2 items-center">
-                  <div
-                    class="h-4 w-4 rounded-sm border-2 border-slate-800"
-                  ></div>
-                  <span>نوکیا</span>
-                </div>
+              <div x-show="open===true" class="flex flex-col  gap-y-3">
+                <div x-data="{orange:false,slate:true,yellow:false}" class="flex flex-wrap gap-4">
+                 <div
+                @click="orange=!orange"
+                :class="orange===true ?'ring-2  ring-orange-400':''"
+                class="bg-orange-400 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer -mr-0.5 text-white flex justify-center items-center"
+              ></div>
+                               <div
+                @click="slate=!slate"
+                :class="slate===true ?'ring-2  ring-slate-800':''"
+                class="bg-slate-800 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer -mr-0.5 text-white flex justify-center items-center"
+              ></div>
+                             <div
+                @click="yellow=!yellow"
+                :class="yellow===true ?'ring-2  ring-yellow-400':''"
+                class="bg-yellow-400 w-5 h-5 rounded-full border hover:ml-1 hover:scale-125 border-stone-50 cursor-pointer -mr-0.5 text-white flex justify-center items-center"
+              ></div>
+
+                </div>      
+
               </div>
             </div>
 
@@ -434,7 +435,7 @@
             <div x-data="{open:false}" class="flex flex-col gap-y-4">
               <button
                 @click="open=!open"
-                class="flex w-full justify-between items-center"
+                class="flex w-full justify-between items-center hover:bg-gray-100 p-1 rounded-md"
               >
                 <div class="flex gap-2 items-end">
                   <div>
@@ -498,7 +499,7 @@
                   </div>
                   <h4>قیمت</h4>
                 </div>
-                <div :class="open===true ? 'rotate-180':'' ">
+                <div :class="open===true ? 'rotate-180':'' " class="transition-all duration-500 ease-out">
                   <svg
                     width="15"
                     height="15"
